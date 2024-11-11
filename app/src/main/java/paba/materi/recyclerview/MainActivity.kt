@@ -3,8 +3,10 @@ package paba.materi.recyclerview
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,7 +50,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun TampilkanData() {
-        _rvWayang.layoutManager = LinearLayoutManager(this)
+       _rvWayang.layoutManager = LinearLayoutManager(this) // Linear Layout
+
+        // _rvWayang.layoutManager = GridLayoutManager(this,2) // Grid Layout
+        // _rvWayang.layoutManager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL) // StaggeredG Grid Layout
+
         _rvWayang.adapter = adapterRecView(arWayang)
     }
 }
