@@ -2,38 +2,57 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="125dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/gambarWayang"
+        android:layout_width="125dp"
+        android:layout_height="match_parent"
+        android:backgroundTint="#BFF4BE"
+        android:padding="4dp"
+        android:src="@drawable/android">
 
-        <ImageView
-            android:id="@+id/gambarWayangIV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="">
+    </ImageView>
 
-        </ImageView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/namaWayang"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+        android:layout_marginTop="5dp"
+        android:paddingLeft="135dp"
+        android:text="namaWayang"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/gambarWayang">
 
-        <TextView
-            android:id="@+id/namaWayangTV"
-            android:textStyle="bold"
-            android:textSize="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="namaWayang">
+    </TextView>
 
-        </TextView>
+    <TextView
+        android:id="@+id/karakterWayang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="135dp"
+        android:text="karakterWayang"
+        android:textColor="#008B8B"
+        app:layout_constraintTop_toBottomOf="@id/namaWayang">
 
+    </TextView>
+
+    <TextView
+        android:id="@+id/deskripsiWayang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:paddingLeft="135dp"
+        android:text="deskripsiWayang"
+        app:layout_constraintTop_toBottomOf="@id/karakterWayang">
+
+    </TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>

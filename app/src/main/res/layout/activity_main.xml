@@ -1,66 +1,16 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:padding="8dp"
-    android:id="@+id/main">
+    android:id="@+id/main"
+    tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWayang"
         android:layout_width="match_parent"
-        android:layout_height="115dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp">
+        android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/android"
-            android:layout_width="125dp"
-            android:layout_height="match_parent"
-            android:backgroundTint="#BFF4BE"
-            android:padding="4dp"
-            android:src="@drawable/android">
-
-        </ImageView>
-
-        <TextView
-            android:id="@+id/namaWayangTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:paddingLeft="135dp"
-            android:text="namaWayang"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="@id/android">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/karakterWayangTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:paddingLeft="135dp"
-            android:paddingTop="5dp"
-            android:text="karakterWayang"
-            android:textColor="#008B8B"
-            app:layout_constraintTop_toBottomOf="@id/namaWayangTV">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/deskripsiWayangTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:paddingLeft="135dp"
-            android:text="deskripsiWayang"
-            app:layout_constraintTop_toBottomOf="@id/karakterWayangTV">
-
-        </TextView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
