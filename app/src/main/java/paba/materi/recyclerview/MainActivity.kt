@@ -1,12 +1,18 @@
 package paba.materi.recyclerview
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Telephony.Mms.Intents
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,6 +61,18 @@ class MainActivity : AppCompatActivity() {
         // _rvWayang.layoutManager = GridLayoutManager(this,2) // Grid Layout
         // _rvWayang.layoutManager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL) // StaggeredG Grid Layout
 
-        _rvWayang.adapter = adapterRecView(arWayang)
+        val adapterWayang = adapterRecView(arWayang)
+        _rvWayang.adapter = adapterWayang
+
+        adapterWayang.setOnItemClickCallback(object : adapterRecView.OnItemClickCallback {
+            override fun onItemClicked(data: wayang) {
+
+                val intent = Intent(this@MainActivity,detWayang::class.java)
+                intent.putExtra("kirimData", data)
+                startActivity(intent)
+
+                Toast.makeText(this@MainActivity, "Kamu memilih " + data.nama, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }

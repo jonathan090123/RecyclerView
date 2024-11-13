@@ -6,10 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class adapterRecView(private val listWayang: ArrayList<wayang>) : RecyclerView.Adapter<adapterRecView.ListViewHolder>() {
+
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: wayang)
+    }
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var _namaWayang = itemView.findViewById<TextView>(R.id.namaWayang)
@@ -27,6 +34,10 @@ class adapterRecView(private val listWayang: ArrayList<wayang>) : RecyclerView.A
         return listWayang.size
     }
 
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val wayang = listWayang[position]
 
@@ -37,5 +48,9 @@ class adapterRecView(private val listWayang: ArrayList<wayang>) : RecyclerView.A
         Picasso.get()
             .load(wayang.foto)
             .into(holder._gambarWayang)
+        holder._gambarWayang.setOnClickListener {
+//            Toast.makeText(holder.itemView.context, "Kamu memilih " + listWayang[holder.adapterPosition].nama, Toast.LENGTH_SHORT).show()
+            onItemClickCallback.onItemClicked(listWayang[position])
+        }
     }
 }
