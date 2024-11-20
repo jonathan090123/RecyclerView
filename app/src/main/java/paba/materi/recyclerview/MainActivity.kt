@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity() {
 //            )
 //            arWayang.add(data)
 //        }
+        //'
 
         val gson = Gson()
         val editor = sp.edit()
