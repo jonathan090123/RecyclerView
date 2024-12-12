@@ -8,9 +8,17 @@
     tools:context=".MainActivity"
     android:padding="8dp">
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Cari daftar belanja..."
+        android:layout_margin="8dp"
+        tools:ignore="MissingConstraints" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rvWayang"/>
+        android:id="@+id/rvWayang" />
 
 </LinearLayout>

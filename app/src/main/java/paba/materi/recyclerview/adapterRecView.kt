@@ -10,8 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-data class adapterRecView(private val listWayang : ArrayList<wayang>) : RecyclerView.Adapter<adapterRecView.ListViewHolder>() {
+data class adapterRecView(private var listWayang : ArrayList<wayang>) : RecyclerView.Adapter<adapterRecView.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
+    private var fullListWayang: ArrayList<wayang> = ArrayList(listWayang)
 
     interface OnItemClickCallback {
         fun onItemClicked(data:wayang)
@@ -23,6 +24,12 @@ data class adapterRecView(private val listWayang : ArrayList<wayang>) : Recycler
         this.onItemClickCallback = onItemClickCallback
     }
 
+    // Fungsi untuk memperbarui daftar yang ditampilkan berdasarkan pencarian
+    fun filterList(filteredList: ArrayList<wayang>) {
+        listWayang = filteredList
+        notifyDataSetChanged()
+    }
+
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var _namaWayang = itemView.findViewById<TextView>(R.id.namaWayang)
         var _karakterWayang = itemView.findViewById<TextView>(R.id.karakterWayang)
@@ -30,7 +37,6 @@ data class adapterRecView(private val listWayang : ArrayList<wayang>) : Recycler
         var _gambarWayang = itemView.findViewById<ImageView>(R.id.gambarWayang)
         var _btnHapus = itemView.findViewById<Button>(R.id.btnHapus)
     }
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
